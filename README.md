@@ -1,1 +1,1 @@
-# FreeCodeCamp Quote Machine
+# Free Code Camp - Quote Machine
