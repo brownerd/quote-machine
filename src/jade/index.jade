@@ -1,36 +1,30 @@
-// Use a mixin to keep from writing this html twice
-mixin environment(blk)
-  div(class='#{blk}')
-    div(class='#{blk}__haus')
-      // Use flex order to reverse the roof and walls in the reflection
-      div(class='#{blk}__haus-roof')
-        div(class='#{blk}__haus-roof-side')
-        div(class='#{blk}__haus-roof-front')
-      div(class='#{blk}__haus-walls')
-        div(class='#{blk}__haus-walls-front')
-        div(class='#{blk}__haus-walls-side')
-        
-.nav
-  a(href="http://www.freecodecamp.com/challenges/build-a-random-quote-machine").logo
-    span.free Free
-    span.code Code
-    span.camp Camp
-    span.project Local Weather
-  
-  
-  .controls
-    span#user_city.data ...
-    span#description.data ...
-    span#fahrenheit.data ...
-    span#celsius.data ...
-    .switch
-      input(id="cc-toggle" class="check-toggle check-toggle-round-flat" type="checkbox")
-      label(for="cc-toggle")
-
-      span.on F
-      span.off C
-
-    
-#app
-  +environment('sky')
-  +environment('ground')
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title FCC Quote Machine
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //-link(rel='stylesheet', href='style.css')
+    //-script(src='main.js')
+      
+  body
+            
+    .nav
+      a(href="http://www.freecodecamp.com/challenges/build-a-random-quote-machine").logo
+        span.free Free
+        span.code Code
+        span.camp Camp
+        span.project Quote Machine
+      
+      
+      .controls
+        a(href="" class="button next" rel="next") Next quote
+        //- a(href="" class="button" rel="archive") Archive
+        a(href="" class="button tweet" rel="tweet") Tweet
+              
+    .board
+      div(class="content" rel="content")
+        q(class="quote animate-reveal--1" rel="quote")
+        p(class="author" rel="author")

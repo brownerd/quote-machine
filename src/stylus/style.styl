@@ -1,0 +1,174 @@
+@import 'reset.styl'
+@import url("http://fonts.googleapis.com/css?family=Roboto\+Slab:300,100,400,700")
+
+ // simple breakpoints
+ breakpoints = {
+  sm: "(max-width: 850px)",
+  med: "(max-width: 1024px)",
+  lg: "(max-width: 1600px)"
+}
+
+breakpoint(name)
+  @media breakpoints[name]
+    {block}
+
+lines = #fc0
+
+*
+  box-sizing border-box
+
+body
+  font-family roboto slab
+  font-size 20
+  font-weight 200
+  line-height 1.5
+  display flex
+  justify-content flex-start
+  align-items center
+  height 100vh
+  width 100vw
+  flex-direction column
+
+.board
+  background #0fc
+  border-bottom 4rem solid white
+  border-left 4rem solid white
+  border-right 4rem solid white
+  color indigo
+  height 100vh
+  width 100vw
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 25%,
+      lines 0,
+      lines 50%
+    ),
+    #fff
+  background-size: 4rem 4rem
+
+.content
+  background #fff
+  color indigo
+  //height 50vh
+  width 65vw
+  padding 4rem
+  display flex
+  align-items flex-end
+  justify-content space-between
+  flex-direction column
+  max-height 75vh
+
+.quote
+  font-size 2rem
+  font-style italic
+  font-weight 700
+  position relative
+
+.author
+  font-size 1.5rem
+
+  &::before
+    content: '- '
+
+.nav
+  display flex
+  align-items center
+  justify-content space-between
+  padding 0 4rem
+  height 4.2rem
+  width 100vw
+
+  +breakpoint('sm')
+    flex-direction column
+    height 8rem
+
+
+.logo
+  //font-family Roboto Condensed
+  font-size 2rem
+  font-weight 700
+  line-height 1
+  position relative
+  text-decoration none
+  &:hover .free,
+    //
+  &:hover
+    .code, .camp, .project
+      transform translateX(0)
+
+  +breakpoint('sm')
+    width 100%
+
+.free, .code, .camp, .project
+  background-color white
+  color indigo
+  display inline-block
+  overflow hidden
+  transition all .33s cubic-bezier(.91,-0.44,.12,1.51)
+
+.code
+  transform translateX(-65%)
+
+.camp
+  transform translateX(-118%)
+
+.project
+  background-color white
+  font-weight 200
+  transform translateX(-75%)
+
+.controls
+  display flex
+  align-items center
+  justify-content space-between
+
+  +breakpoint('sm')
+    margin 1rem 0
+
+.button
+  background-color indigo
+  //border 1px solid indigo
+  border-radius .25rem
+  color white
+  font-weight 300
+  margin-left .5rem
+  padding .5rem
+  text-decoration none
+
+  &:hover
+    background-color #fc0
+    color indigo
+
+
+.animate-reveal--1
+  opacity 0
+  animation reveal 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards
+  animation-delay 1s
+
+@keyframes reveal
+  0%
+    opacity 0
+    transform translate(0, -10%)
+  100%
+    opacity 1
+    transform: translate(0, 0)
+
+.animate-reveal--2
+  opacity 0
+  animation reveal-2 2s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards
+  animation-delay 1s
+
+@keyframes reveal-2
+  0%
+    opacity 0
+    transform translate(0, 10%)
+  100%
+    opacity 1
+    transform: translate(0, 0)
